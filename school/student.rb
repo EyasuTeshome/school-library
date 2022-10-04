@@ -1,6 +1,6 @@
 class Student < Person
   def initialize(age, _name, _parent_permission, classroom = nil)
-    super(age, name = 'unknown', parent_permission = true)
+    super(age, name: 'unknown', parent_permission: true)
     @classroom = classroom
   end
 
