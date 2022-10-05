@@ -1,3 +1,4 @@
+require_relative 'decorate'
 class Person
   attr_accessor :name, :age
   attr_reader :id
@@ -7,10 +8,15 @@ class Person
     @name = name
     @age = age
     @parent_permission = parent_permission
+    @nameable = Nameable.new
   end
 
   def age_verify
     of_age? || @parent_permission
+  end
+
+  def validate_name
+    @name = @nameable.correct_name(@name)
   end
 
   private
