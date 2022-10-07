@@ -1,14 +1,15 @@
-class Classroom
-  attr_accessor :label
-  attr_reader :student
+require './person'
+require './book'
 
-  def initialize(label)
-    @label = label
-    @student = []
-  end
+class Rental
+  attr_accessor :date
+  attr_reader :person, :book
 
-  def add_student(student)
-    @students.push(student)
-    student.classroom = self
+  def initialize(date, person, book)
+    @date = date
+    @person = person
+    person.rentals << self
+    @book = book
+    book.rentals << self
   end
 end
